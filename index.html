@@ -1,0 +1,400 @@
+<title>Prashant Yadav</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400..800&family=DM+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap">
+<style>
+/* Layout: dark-first night-sky portfolio. Oversized gradient name over a drawn Himalayan ridge line, a skills marquee, scored skill cards with 10-segment meters, and an education route from Dharan to Bengaluru. */
+:root {
+  --bg: #090C17;
+  --surface: #11162A;
+  --surface-2: #171E38;
+  --fg: #EEF1F8;
+  --muted: #98A3BF;
+  --line: #232C47;
+  --accent: #FF3D5A;
+  --accent-2: #FFB547;
+  --accent-ink: #090C17;
+  --blue: #7B98F5;
+  --seg-off: #26304D;
+  --glow: rgba(255, 61, 90, 0.16);
+  --grain: 0.07;
+  --font-display: "Bricolage Grotesque", "Helvetica Neue", Arial, sans-serif;
+  --font-body: "DM Sans", system-ui, -apple-system, "Segoe UI", sans-serif;
+  --font-mono: "JetBrains Mono", ui-monospace, "SFMono-Regular", Menlo, monospace;
+  color-scheme: dark;
+}
+@media (prefers-color-scheme: light) {
+  :root:not([data-theme="dark"]) {
+    --bg: #F1F4FA; --surface: #FFFFFF; --surface-2: #F7F9FD; --fg: #0C1226; --muted: #53617D; --line: #D5DCEA;
+    --accent: #D01238; --accent-2: #D98200; --accent-ink: #FFFFFF; --blue: #2A4BC4; --seg-off: #E0E6F1;
+    --glow: rgba(208, 18, 56, 0.10); --grain: 0.04;
+    color-scheme: light;
+  }
+}
+:root[data-theme="light"] {
+  --bg: #F1F4FA; --surface: #FFFFFF; --surface-2: #F7F9FD; --fg: #0C1226; --muted: #53617D; --line: #D5DCEA;
+  --accent: #D01238; --accent-2: #D98200; --accent-ink: #FFFFFF; --blue: #2A4BC4; --seg-off: #E0E6F1;
+  --glow: rgba(208, 18, 56, 0.10); --grain: 0.04;
+  color-scheme: light;
+}
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; scroll-padding-top: 72px; }
+body {
+  background: var(--bg); color: var(--fg);
+  font-family: var(--font-body); font-size: 16px; line-height: 1.65;
+  padding-left: max(16px, env(safe-area-inset-left, 0px));
+  padding-right: max(16px, env(safe-area-inset-right, 0px));
+  padding-block: 0 56px;
+  overflow-x: hidden;
+}
+body::before { content: ""; position: fixed; inset: 0 0 auto; height: env(safe-area-inset-top, 0px); z-index: 10; background: var(--bg); }
+body::after {
+  content: ""; position: fixed; inset: 0; z-index: 20; pointer-events: none; opacity: var(--grain);
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.8' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+}
+.wrap { max-width: 1040px; margin: 0 auto; }
+a { color: inherit; }
+:focus-visible { outline: 3px solid var(--accent-2); outline-offset: 3px; border-radius: 6px; }
+
+/* header */
+header.bar {
+  position: sticky; top: env(safe-area-inset-top, 0px); z-index: 5;
+  background: var(--bg);
+  background: color-mix(in srgb, var(--bg) 82%, transparent);
+  -webkit-backdrop-filter: blur(14px); backdrop-filter: blur(14px);
+  border-bottom: 1px solid var(--line);
+  margin-inline: calc(-1 * max(16px, env(safe-area-inset-left, 0px)));
+  padding-inline: max(16px, env(safe-area-inset-left, 0px));
+}
+.bar-in { max-width: 1040px; margin: 0 auto; display: flex; align-items: center; gap: 16px; min-height: 60px; flex-wrap: wrap; }
+.brand { font-family: var(--font-display); font-weight: 700; font-size: 18px; text-decoration: none; letter-spacing: -0.02em; margin-right: auto; display: inline-flex; align-items: center; gap: 10px; }
+.brand b { display: grid; place-items: center; width: 30px; height: 30px; border-radius: 8px; background: linear-gradient(135deg, var(--accent), var(--accent-2)); color: var(--accent-ink); font-size: 14px; }
+nav { display: flex; gap: 2px; flex-wrap: wrap; }
+nav a { text-decoration: none; color: var(--muted); font-size: 14px; padding: 7px 12px; border-radius: 999px; transition: color .2s, background .2s; }
+nav a:hover { color: var(--fg); background: var(--surface); }
+.theme { background: var(--surface); color: var(--fg); border: 1px solid var(--line); width: 38px; height: 38px; border-radius: 50%; cursor: pointer; font-size: 17px; transition: border-color .2s, transform .3s; }
+.theme:hover { border-color: var(--accent); transform: rotate(180deg); }
+
+/* hero */
+.hero { position: relative; padding-block: 80px 0; isolation: isolate; }
+.hero::before {
+  content: ""; position: absolute; inset: -80px -40px 0; z-index: -1; pointer-events: none;
+  background: radial-gradient(480px circle at var(--mx, 22%) var(--my, 28%), var(--glow), transparent 70%);
+}
+.pill { display: inline-flex; align-items: center; gap: 10px; font-family: var(--font-mono); font-size: 12px; letter-spacing: 0.06em; text-transform: uppercase; color: var(--muted); border: 1px solid var(--line); background: var(--surface); padding: 7px 14px; border-radius: 999px; }
+.pill i { width: 8px; height: 8px; border-radius: 50%; background: var(--accent); display: block; box-shadow: 0 0 0 0 var(--accent); animation: ping 2.4s ease-out infinite; }
+@keyframes ping { 0% { box-shadow: 0 0 0 0 var(--glow), 0 0 0 0 var(--accent); } 70% { box-shadow: 0 0 0 10px transparent, 0 0 0 0 transparent; } 100% { box-shadow: 0 0 0 0 transparent; } }
+h1 { font-family: var(--font-display); font-weight: 800; font-size: clamp(56px, 15vw, 176px); line-height: 0.88; letter-spacing: -0.045em; margin: 28px 0 24px; font-variation-settings: "opsz" 96; }
+h1 span { display: block; }
+h1 .grad {
+  background: linear-gradient(100deg, var(--accent) 0%, var(--accent-2) 45%, var(--accent) 100%);
+  background-size: 200% 100%; -webkit-background-clip: text; background-clip: text; color: transparent;
+  animation: slide 9s linear infinite; padding-bottom: 0.08em;
+}
+@keyframes slide { to { background-position: -200% 0; } }
+.lede { max-width: 54ch; font-size: clamp(17px, 2.2vw, 21px); color: var(--muted); margin: 0 0 12px; }
+.lede strong { color: var(--fg); font-weight: 600; }
+.btns { display: flex; gap: 12px; flex-wrap: wrap; margin-top: 28px; }
+.btn { font-family: var(--font-display); font-weight: 600; font-size: 15px; text-decoration: none; padding: 13px 24px; border-radius: 999px; border: 1px solid var(--line); background: var(--surface); transition: transform .2s, border-color .2s, box-shadow .2s; }
+.btn:hover { transform: translateY(-2px); border-color: var(--fg); }
+.btn.primary { background: linear-gradient(120deg, var(--accent), var(--accent-2)); border-color: transparent; color: var(--accent-ink); }
+.btn.primary:hover { box-shadow: 0 10px 30px -10px var(--accent); }
+.ridge { display: block; width: 100%; height: auto; margin-top: 40px; overflow: visible; }
+.ridge .fillpath { fill: var(--surface); opacity: .55; }
+.ridge .stroke { fill: none; stroke: url(#rg); stroke-width: 2; stroke-linejoin: round; stroke-linecap: round; stroke-dasharray: 1; stroke-dashoffset: 0; animation: draw 3.2s ease-out both; }
+@keyframes draw { from { stroke-dashoffset: 1; } to { stroke-dashoffset: 0; } }
+
+/* marquee */
+.marquee { overflow: hidden; border-block: 1px solid var(--line); margin-inline: calc(-1 * max(16px, env(safe-area-inset-left, 0px))); background: var(--surface); }
+.track { display: flex; width: max-content; animation: scroll 38s linear infinite; }
+.marquee:hover .track { animation-play-state: paused; }
+.track span { display: inline-flex; align-items: center; gap: 28px; padding: 14px 0 14px 28px; font-family: var(--font-display); font-weight: 600; font-size: 20px; letter-spacing: -0.01em; white-space: nowrap; color: var(--muted); }
+.track span::after { content: ""; width: 7px; height: 7px; border-radius: 50%; background: var(--accent); }
+@keyframes scroll { to { transform: translateX(-50%); } }
+
+/* quick facts */
+.facts { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); border-bottom: 1px solid var(--line); }
+.fact { padding: 28px 24px 28px 0; min-width: 0; }
+.fact + .fact { padding-left: 24px; border-left: 1px solid var(--line); }
+.fact small { font-family: var(--font-mono); font-size: 11px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--muted); display: block; margin-bottom: 4px; }
+.fact b { font-family: var(--font-display); font-size: clamp(18px, 2.6vw, 24px); font-weight: 600; letter-spacing: -0.02em; line-height: 1.2; display: block; overflow-wrap: anywhere; }
+
+/* sections */
+section { padding-block: 80px; }
+section + section { border-top: 1px solid var(--line); }
+.eyebrow { font-family: var(--font-mono); font-size: 12px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--accent); margin: 0 0 12px; display: flex; align-items: center; gap: 12px; }
+.eyebrow::after { content: ""; height: 1px; width: 48px; background: var(--accent); opacity: .6; }
+h2 { font-family: var(--font-display); font-weight: 700; font-size: clamp(32px, 6vw, 56px); letter-spacing: -0.035em; line-height: 1.02; margin: 0 0 16px; text-wrap: balance; }
+.sub { color: var(--muted); max-width: 58ch; margin: 0 0 36px; font-size: 17px; }
+.about-grid { display: grid; grid-template-columns: minmax(0, 1.1fr) minmax(0, 1fr); gap: 48px; align-items: start; }
+.about p { margin: 0 0 18px; font-size: 18px; max-width: 58ch; }
+.about p:first-of-type::first-line { color: var(--fg); font-weight: 600; }
+.quote { font-family: var(--font-display); font-size: clamp(24px, 3.4vw, 36px); line-height: 1.15; letter-spacing: -0.03em; font-weight: 600; padding: 28px; border-radius: 20px; background: var(--surface); border: 1px solid var(--line); position: relative; overflow: hidden; }
+.quote::before { content: ""; position: absolute; width: 220px; height: 220px; right: -70px; top: -70px; border-radius: 50%; background: radial-gradient(circle, var(--glow), transparent 70%); }
+.quote em { font-style: normal; background: linear-gradient(100deg, var(--accent), var(--accent-2)); -webkit-background-clip: text; background-clip: text; color: transparent; }
+
+/* skills */
+.tools { display: flex; align-items: center; gap: 12px; margin-bottom: 24px; flex-wrap: wrap; }
+.tools label { font-size: 14px; color: var(--muted); }
+.seg { display: inline-flex; background: var(--surface); border: 1px solid var(--line); border-radius: 999px; padding: 4px; gap: 2px; flex-wrap: wrap; }
+.seg button { font: inherit; font-size: 14px; color: var(--muted); background: transparent; border: 0; padding: 7px 16px; border-radius: 999px; cursor: pointer; transition: color .2s, background .2s; }
+.seg button:hover { color: var(--fg); }
+.seg button[aria-pressed="true"] { background: var(--fg); color: var(--bg); }
+.skills { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 14px; }
+.skill { background: var(--surface); border: 1px solid var(--line); border-radius: 16px; padding: 20px 22px; min-width: 0; transition: transform .25s, border-color .25s, box-shadow .25s; animation: pop .45s ease both; }
+.skill:hover { transform: translateY(-3px); border-color: var(--accent); box-shadow: 0 18px 40px -24px var(--accent); }
+@keyframes pop { from { opacity: .35; transform: translateY(8px); } to { opacity: 1; transform: none; } }
+.skill-top { display: flex; justify-content: space-between; align-items: baseline; gap: 12px; }
+.skill-name { font-family: var(--font-display); font-weight: 700; font-size: 20px; letter-spacing: -0.02em; overflow-wrap: anywhere; }
+.score { font-family: var(--font-mono); font-size: 13px; color: var(--muted); font-variant-numeric: tabular-nums; white-space: nowrap; }
+.score b { color: var(--fg); font-family: var(--font-display); font-size: 28px; font-weight: 700; letter-spacing: -0.03em; }
+.meta { display: flex; gap: 10px; align-items: center; margin: 2px 0 16px; font-size: 12px; color: var(--muted); letter-spacing: 0.06em; text-transform: uppercase; flex-wrap: wrap; }
+.lvl { font-family: var(--font-mono); font-size: 11px; padding: 2px 9px; border-radius: 999px; border: 1px solid var(--line); color: var(--fg); background: var(--surface-2); }
+.meter { display: grid; grid-template-columns: repeat(10, 1fr); gap: 4px; }
+.meter i { height: 10px; border-radius: 3px; background: var(--seg-off); display: block; transition: background .2s; }
+.meter i.on { background: linear-gradient(90deg, var(--accent), var(--accent-2)); background-size: 1000% 100%; }
+.meter i.on:nth-child(1){background-position:0 0}.meter i.on:nth-child(2){background-position:11% 0}.meter i.on:nth-child(3){background-position:22% 0}.meter i.on:nth-child(4){background-position:33% 0}.meter i.on:nth-child(5){background-position:44% 0}.meter i.on:nth-child(6){background-position:55% 0}.meter i.on:nth-child(7){background-position:66% 0}.meter i.on:nth-child(8){background-position:77% 0}.meter i.on:nth-child(9){background-position:88% 0}.meter i.on:nth-child(10){background-position:100% 0}
+
+/* timeline: the route from school to college */
+.route { list-style: none; margin: 0; padding: 0 0 0 0; position: relative; display: grid; gap: 20px; }
+.route::before { content: ""; position: absolute; left: 14px; top: 20px; bottom: 20px; width: 2px; background: linear-gradient(var(--blue), var(--accent), var(--accent-2)); border-radius: 2px; }
+.route li { position: relative; display: grid; grid-template-columns: 30px minmax(0, 1fr); gap: 24px; align-items: start; }
+.node { width: 30px; height: 30px; border-radius: 50%; background: var(--bg); border: 2px solid var(--blue); position: relative; z-index: 1; margin-top: 22px; }
+.node::after { content: ""; position: absolute; inset: 6px; border-radius: 50%; background: var(--blue); }
+.route li:nth-child(2) .node { border-color: var(--accent); } .route li:nth-child(2) .node::after { background: var(--accent); }
+.route li.now .node { border-color: var(--accent-2); } .route li.now .node::after { background: var(--accent-2); animation: beat 1.8s ease-in-out infinite; }
+@keyframes beat { 50% { transform: scale(1.5); opacity: .7; } }
+.card { background: var(--surface); border: 1px solid var(--line); border-radius: 18px; padding: 22px 26px; min-width: 0; display: grid; grid-template-columns: 130px minmax(0, 1fr); gap: 8px 28px; transition: border-color .25s, transform .25s; }
+.card:hover { border-color: var(--accent); transform: translateX(4px); }
+.route li.now .card { background: linear-gradient(135deg, var(--surface), var(--surface-2)); border-color: var(--accent-2); }
+.year { font-family: var(--font-display); font-size: clamp(30px, 4vw, 44px); font-weight: 700; letter-spacing: -0.04em; line-height: 1; color: var(--blue); }
+.route li:nth-child(2) .year { color: var(--accent); }
+.route li.now .year { color: var(--accent-2); }
+.card h3 { font-family: var(--font-display); font-size: 22px; font-weight: 700; letter-spacing: -0.02em; margin: 0 0 2px; line-height: 1.2; }
+.card .where { font-family: var(--font-mono); font-size: 12px; letter-spacing: 0.04em; color: var(--muted); display: block; margin-bottom: 8px; }
+.card p { margin: 0; color: var(--muted); }
+
+/* contact */
+.links { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 14px; }
+.link { background: var(--surface); border: 1px solid var(--line); border-radius: 16px; padding: 22px; min-width: 0; text-decoration: none; display: grid; gap: 6px; transition: transform .25s, border-color .25s, box-shadow .25s; }
+.link:hover { border-color: var(--accent); transform: translateY(-3px); box-shadow: 0 18px 40px -24px var(--accent); }
+.link small { font-family: var(--font-mono); font-size: 12px; text-transform: uppercase; letter-spacing: 0.08em; color: var(--muted); }
+.link span { font-family: var(--font-display); font-weight: 700; font-size: 20px; overflow-wrap: anywhere; }
+.empty { color: var(--muted); font-size: 17px; }
+footer { border-top: 1px solid var(--line); padding-top: 28px; color: var(--muted); font-size: 14px; display: flex; justify-content: space-between; gap: 12px; flex-wrap: wrap; }
+
+@media (max-width: 760px) {
+  .about-grid { grid-template-columns: 1fr; gap: 28px; }
+  .skills { grid-template-columns: 1fr; }
+  .facts { grid-template-columns: 1fr; }
+  .fact, .fact + .fact { padding: 18px 0; border-left: 0; }
+  .fact + .fact { border-top: 1px solid var(--line); }
+  .card { grid-template-columns: 1fr; gap: 10px; padding: 20px; }
+  .route li { gap: 16px; }
+  .hero { padding-top: 48px; }
+  section { padding-block: 56px; }
+  .brand { width: 100%; }
+}
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  .track, h1 .grad, .pill i, .route li.now .node::after, .skill, .ridge .stroke { animation: none; }
+  .btn:hover, .skill:hover, .link:hover, .card:hover, .theme:hover { transform: none; }
+}
+</style>
+
+<header class="bar">
+  <div class="bar-in">
+    <a class="brand" href="#top"><b>PY</b>Prashant Yadav</a>
+    <nav aria-label="Sections">
+      <a href="#about">About</a>
+      <a href="#skills">Skills</a>
+      <a href="#background">Background</a>
+      <a href="#contact">Contact</a>
+    </nav>
+    <button class="theme" id="theme" type="button" aria-label="Switch colour theme" title="Switch colour theme">◐</button>
+  </div>
+</header>
+
+<main class="wrap" id="top">
+  <div class="hero" id="hero">
+    <span class="pill"><i></i>Open to internships and projects</span>
+    <h1><span>Prashant</span><span class="grad">Yadav</span></h1>
+    <p class="lede"><strong>First-year Computer Science student at BMSIT&amp;M.</strong> I like turning ideas into clean, working software, and I keep honest scores on how far I’ve come.</p>
+    <div class="btns">
+      <a class="btn primary" href="#skills">See my skills</a>
+      <a class="btn" href="#contact">Get in touch</a>
+    </div>
+    <svg class="ridge" viewBox="0 0 1200 170" preserveAspectRatio="none" role="img" aria-label="A line drawing of a mountain ridge">
+      <defs>
+        <linearGradient id="rg" x1="0" x2="1" y1="0" y2="0">
+          <stop offset="0" stop-color="var(--blue)"/>
+          <stop offset="0.55" stop-color="var(--accent)"/>
+          <stop offset="1" stop-color="var(--accent-2)"/>
+        </linearGradient>
+      </defs>
+      <path class="fillpath" d="M0 168 L0 138 L110 96 L180 122 L320 34 L410 108 L510 66 L600 128 L760 14 L860 104 L960 58 L1070 118 L1200 74 L1200 168 Z"/>
+      <path class="stroke" pathLength="1" d="M0 138 L110 96 L180 122 L320 34 L410 108 L510 66 L600 128 L760 14 L860 104 L960 58 L1070 118 L1200 74"/>
+    </svg>
+  </div>
+
+  <div class="marquee" aria-hidden="true"><div class="track" id="track"></div></div>
+
+  <div class="facts">
+    <div class="fact"><small>Studying</small><b>Computer Science &amp; Engineering, Year 1</b></div>
+    <div class="fact"><small>Campus</small><b>BMSIT&amp;M, Bengaluru</b></div>
+    <div class="fact"><small>Looking for</small><b>Internships and projects</b></div>
+  </div>
+
+  <section id="about" class="about">
+    <p class="eyebrow">About</p>
+    <h2>About me</h2>
+    <div class="about-grid">
+      <div>
+        <p>I’m a first-year Computer Science and Engineering student at BMSIT&amp;M in Bengaluru. I finished school at Nepal Police School, Dharan in 2024 and completed college at Urbana School of Science in 2026.</p>
+        <p>I enjoy building small, useful things for the web and fixing them until they work properly. Next I want to get stronger at JavaScript, build bigger projects with a team, and land an internship where I can learn from working developers.</p>
+      </div>
+      <div class="quote">Start small, ship it, then make it <em>better</em> every week.</div>
+    </div>
+  </section>
+
+  <section id="skills">
+    <p class="eyebrow">Skills</p>
+    <h2>Where I stand today</h2>
+    <p class="sub">Each skill is scored out of 10. The scores are how I rate myself right now, and I update them as I improve.</p>
+    <div class="tools">
+      <span class="tools-label" id="sort-label" style="font-size:14px;color:var(--muted)">Sort skills</span>
+      <div class="seg" role="group" aria-labelledby="sort-label" id="sort">
+        <button type="button" data-sort="original" aria-pressed="true">Original order</button>
+        <button type="button" data-sort="high" aria-pressed="false">Highest first</button>
+        <button type="button" data-sort="low" aria-pressed="false">Lowest first</button>
+      </div>
+    </div>
+    <ul class="skills" id="skills-list"></ul>
+  </section>
+
+  <section id="background">
+    <p class="eyebrow">Resume &amp; background</p>
+    <h2>From Dharan to Bengaluru</h2>
+    <p class="sub">Where I’ve studied so far, in the order it happened.</p>
+    <ol class="route">
+      <li>
+        <span class="node" aria-hidden="true"></span>
+        <div class="card">
+          <div class="year">2024</div>
+          <div>
+            <h3>Nepal Police School</h3>
+            <span class="where">Dharan, Nepal · School</span>
+            <p>Completed my school education.</p>
+          </div>
+        </div>
+      </li>
+      <li>
+        <span class="node" aria-hidden="true"></span>
+        <div class="card">
+          <div class="year">2026</div>
+          <div>
+            <h3>Urbana School of Science</h3>
+            <span class="where">College</span>
+            <p>Completed my college studies before moving on to engineering.</p>
+          </div>
+        </div>
+      </li>
+      <li class="now">
+        <span class="node" aria-hidden="true"></span>
+        <div class="card">
+          <div class="year">Now</div>
+          <div>
+            <h3>BMSIT&amp;M</h3>
+            <span class="where">Bengaluru, India · 1st year, Computer Science &amp; Engineering</span>
+            <p>Studying CSE and building the projects and skills I’m scoring above.</p>
+          </div>
+        </div>
+      </li>
+    </ol>
+  </section>
+
+  <section id="contact">
+    <p class="eyebrow">Contact</p>
+    <h2>Let’s build something</h2>
+    <p class="sub">Questions, ideas or opportunities are all welcome.</p>
+    <div class="links" id="links"></div>
+  </section>
+
+  <footer><span>© Prashant Yadav</span><span>CSE · BMSIT&amp;M</span></footer>
+</main>
+
+<script>
+/* Edit these two lists to change what the page shows. */
+var SKILLS = [
+  { name: "HTML & CSS", cat: "Frontend", score: 7 },
+  { name: "JavaScript", cat: "Programming", score: 6 },
+  { name: "Python", cat: "Programming", score: 5 },
+  { name: "C Programming", cat: "Programming", score: 5 },
+  { name: "React", cat: "Frontend", score: 4 },
+  { name: "Git & GitHub", cat: "Tools", score: 5 },
+  { name: "Problem solving", cat: "Core", score: 6 },
+  { name: "Communication", cat: "Core", score: 7 }
+];
+/* Fill in a value to show a contact link; leave it empty to hide it. */
+var CONTACTS = [
+  { label: "Email", text: "", href: "" },
+  { label: "GitHub", text: "", href: "" },
+  { label: "LinkedIn", text: "", href: "" }
+];
+
+(function () {
+  var list = document.getElementById("skills-list");
+  var sortBtns = document.querySelectorAll("#sort button");
+  var mode = "original";
+
+  function level(n) { return n >= 8 ? "Strong" : n >= 6 ? "Comfortable" : n >= 4 ? "Learning" : "Starting"; }
+
+  function render() {
+    var items = SKILLS.map(function (s, i) { return { s: s, i: i }; });
+    if (mode === "high") items.sort(function (a, b) { return b.s.score - a.s.score || a.i - b.i; });
+    if (mode === "low") items.sort(function (a, b) { return a.s.score - b.s.score || a.i - b.i; });
+    list.innerHTML = items.map(function (o) {
+      var segs = "";
+      for (var k = 1; k <= 10; k++) segs += '<i class="' + (k <= o.s.score ? "on" : "") + '"></i>';
+      return '<li class="skill"><div class="skill-top"><span class="skill-name">' + o.s.name +
+        '</span><span class="score"><b>' + o.s.score + '</b> / 10</span></div>' +
+        '<div class="meta"><span class="lvl">' + level(o.s.score) + '</span><span>' + o.s.cat + '</span></div>' +
+        '<div class="meter" role="img" aria-label="' + o.s.name + ' ' + o.s.score + ' out of 10">' + segs + '</div></li>';
+    }).join("");
+  }
+  sortBtns.forEach(function (b) {
+    b.addEventListener("click", function () {
+      mode = b.getAttribute("data-sort");
+      sortBtns.forEach(function (x) { x.setAttribute("aria-pressed", x === b ? "true" : "false"); });
+      render();
+    });
+  });
+  render();
+
+  var names = SKILLS.map(function (s) { return "<span>" + s.name + "</span>"; }).join("");
+  document.getElementById("track").innerHTML = names + names;
+
+  var linksEl = document.getElementById("links");
+  var shown = CONTACTS.filter(function (c) { return c.text && c.href; });
+  linksEl.innerHTML = shown.length ? shown.map(function (c) {
+    return '<a class="link" href="' + c.href + '" target="_blank" rel="noopener"><small>' + c.label + '</small><span>' + c.text + '</span></a>';
+  }).join("") : '<p class="empty">Contact links will be added soon.</p>';
+
+  var hero = document.getElementById("hero");
+  hero.addEventListener("pointermove", function (e) {
+    var r = hero.getBoundingClientRect();
+    hero.style.setProperty("--mx", (e.clientX - r.left) + "px");
+    hero.style.setProperty("--my", (e.clientY - r.top) + "px");
+  });
+
+  var root = document.documentElement;
+  var btn = document.getElementById("theme");
+  try { var saved = localStorage.getItem("theme"); if (saved) root.setAttribute("data-theme", saved); } catch (e) {}
+  btn.addEventListener("click", function () {
+    var cur = root.getAttribute("data-theme");
+    if (!cur) cur = window.matchMedia("(prefers-color-scheme: light)").matches ? "light" : "dark";
+    var next = cur === "dark" ? "light" : "dark";
+    root.setAttribute("data-theme", next);
+    try { localStorage.setItem("theme", next); } catch (e) {}
+  });
+})();
+</script>
